@@ -5,49 +5,31 @@ namespace TechApi.Models
     public class UserModelSearch
     {
         [JsonProperty("nome")]
-        public string nome { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("cognome")]
-        public string cognome { get; set; }
+        public string Lastname { get; set; }
 
         [JsonProperty("posizione")]
-        public string posizione { get; set; }
+        public string Position { get; set; }
 
         [JsonProperty("societa")]
-        public string societa { get; set; }
+        public string Society { get; set; }
 
         [JsonProperty("solution")]
-        public string solution { get; set; }
+        public string Solution { get; set; }
 
         [JsonProperty("citta")]
-        public string citta { get; set; }
+        public string City { get; set; }
 
         [JsonProperty("mail")]
-        public string mail { get; set; }
+        public string Mail { get; set; }
     }
 
-    public class UserModelContact
+    public class UserModelContact : UserModelSearch
     {
-        [JsonProperty("nome")]
-        public string nome { get; set; }
-
-        [JsonProperty("cognome")]
-        public string cognome { get; set; }
-
-        [JsonProperty("posizione")]
-        public string posizione { get; set; }
-
-        [JsonProperty("societa")]
-        public string societa { get; set; }
-
-        [JsonProperty("solution")]
-        public string solution { get; set; }
-
         [JsonProperty("indirizzo")]
-        public string indirizzo { get; set; }
-
-        [JsonProperty("citta")]
-        public string citta { get; set; }
+        public string Address { get; set; }
 
         [JsonProperty("cap")]
         public string cap { get; set; }
@@ -58,20 +40,17 @@ namespace TechApi.Models
         [JsonProperty("stanza")]
         public string stanza { get; set; }
 
-        [JsonProperty("mail")]
-        public string mail { get; set; }
-
         [JsonProperty("telefono")]
-        public string telefono { get; set; }
+        public string Phone { get; set; }
 
         [JsonProperty("mobile")]
-        public string mobile { get; set; }
+        public string Mobile { get; set; }
 
         [JsonProperty("mobilepubblico")]
         public string mobilepubblico { get; set; }
 
         [JsonProperty("fax")]
-        public string fax { get; set; }
+        public string Fax { get; set; }
 
         [JsonProperty("interno")]
         public string interno { get; set; }

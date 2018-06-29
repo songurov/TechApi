@@ -60,7 +60,7 @@ namespace TechApi.Controllers
 
         [Route("KPMGYP/yellowpage/ricerca")]
         [HttpGet]
-        public IHttpActionResult Ricerca()
+        public IHttpActionResult GetSearch()
         {
             var name = GetHttpResult(Name);
             var cognome = GetHttpResult(LastName);
@@ -99,7 +99,7 @@ namespace TechApi.Controllers
 
             var model = _DATA_BASE.GetObject<UserModelSearch[]>();
 
-            return Ok(model);
+            return Ok(model.OrderBy(x => x.Name).ThenBy(x => x.Lastname));
         }
 
         private static string AddWhere(string societaUrl, string socientaProp, string final, ICollection<ItemSqlParams> @params, string template)
@@ -114,7 +114,7 @@ namespace TechApi.Controllers
 
         [Route("KPMGYP/yellowpage/getContatto")]
         [HttpGet()]
-        public IHttpActionResult GetContatto()
+        public IHttpActionResult GeContact()
         {
             var name = GetHttpResult(Name);
             var mail = GetHttpResult(Mail);
@@ -160,9 +160,9 @@ namespace TechApi.Controllers
             var model = _DATA_BASE.GetObject<UserModelContact[]>();
 
             if (cognome.IsEmpty() && mail.IsEmpty() && name.IsEmpty()) return Ok(new UserModelContact());
-            var a = model.FirstOrDefault(x => x.cognome.Equals(cognome) ||
-                                                    x.mail.Equals(mail) ||
-                                                    x.nome.Equals(name));
+            var a = model.FirstOrDefault(x => x.Lastname.Equals(cognome) ||
+                                                    x.Mail.Equals(mail) ||
+                                                    x.Name.Equals(name));
 
             return Ok(a ?? new UserModelContact());
         }
